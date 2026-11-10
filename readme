@@ -1,0 +1,66 @@
+# POOBank — Finance CLI
+
+A simple command-line financial application built with Python as a personal learning project.
+
+The main goal of this project is to explore Object-Oriented Programming (OOP) and understand how to apply programming concepts to a real application.
+
+This is my first attempt at building a project independently, so the focus is on learning, practicing and improving along the way.
+
+## Current Features
+
+- [x] Account creation
+- [x] Deposit operations
+- [x] Withdrawal operations
+- [x] Balance consultation
+
+## In Progress
+
+- [ ] JSON data persistence
+- [ ] Login and authentication
+- [ ] Multiple account support
+- [ ] Improved input validation
+
+## Technologies
+
+- Python
+- Object-Oriented Programming (OOP)
+- JSON
+
+## Project Structure
+
+```text
+Finance_CLI/
+├── finance/
+│   ├── models/
+│   │   ├── conta.py
+│   │   └── transacao.py
+│   └── services/
+│       └── persistencia.py
+├── main.py
+├── .gitignore
+└── README.md
+```
+
+## Running the Project
+
+Clone the repository:
+
+```bash
+git clone https://github.com/DEVkaionasci/Finance_CLI.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd Finance_CLI
+```
+
+Install the required dependencies and run:
+
+```bash
+python main.py
+```
+
+## Status
+
+<escape>🚧</escape> This project is currently under development. More features and improvements will be added as I continue learning Python and software development.
