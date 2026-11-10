@@ -1,32 +1,32 @@
-# POOBank — Finance CLI
+# 🏦 POOBank — Finance CLI
 
-A simple command-line financial application built with Python as a personal learning project.
+Aplicação financeira de linha de comando desenvolvida em Python como projeto pessoal de estudo.
 
-The main goal of this project is to explore Object-Oriented Programming (OOP) and understand how to apply programming concepts to a real application.
+O objetivo principal é explorar a **Programação Orientada a Objetos (POO)** e entender como aplicar esses conceitos em uma aplicação real.
 
-This is my first attempt at building a project independently, so the focus is on learning, practicing and improving along the way.
+Este é meu primeiro projeto feito de forma independente, então o foco é aprender, praticar e evoluir ao longo do caminho.
 
-## Current Features
+## ✨ Funcionalidades
 
-- [x] Account creation
-- [x] Deposit operations
-- [x] Withdrawal operations
-- [x] Balance consultation
+- [x] Criação de conta
+- [x] Depósito
+- [x] Saque
+- [x] Consulta de saldo
 
-## In Progress
+## 🚧 Em desenvolvimento
 
-- [ ] JSON data persistence
-- [ ] Login and authentication
-- [ ] Multiple account support
-- [ ] Improved input validation
+- [ ] Persistência de dados em JSON
+- [ ] Login e autenticação
+- [ ] Suporte a múltiplas contas
+- [ ] Melhor validação de entradas
 
-## Technologies
+## 🛠️ Tecnologias
 
 - Python
-- Object-Oriented Programming (OOP)
+- Programação Orientada a Objetos (POO)
 - JSON
 
-## Project Structure
+## 📁 Estrutura do projeto
 
 ```text
 Finance_CLI/
@@ -41,26 +41,26 @@ Finance_CLI/
 └── README.md
 ```
 
-## Running the Project
+## ▶️ Como executar
 
-Clone the repository:
+Clone o repositório:
 
 ```bash
 git clone https://github.com/DEVkaionasci/Finance_CLI.git
 ```
 
-Navigate to the project directory:
+Entre na pasta do projeto:
 
 ```bash
 cd Finance_CLI
 ```
 
-Install the required dependencies and run:
+Execute o programa (requer Python 3 instalado):
 
 ```bash
 python main.py
 ```
 
-## Status
+## 📌 Status
 
-<escape>🚧</escape> This project is currently under development. More features and improvements will be added as I continue learning Python and software development.
+🚧 Projeto em desenvolvimento. Novas funcionalidades e melhorias serão adicionadas conforme eu continuo aprendendo Python e desenvolvimento de software.
