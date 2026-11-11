@@ -13,12 +13,14 @@ Este é meu primeiro projeto feito de forma independente, então o foco é apren
 - [x] Saque
 - [x] Consulta de saldo
 - [x] Persistência de dados em JSON
+- [x] Login e autenticação
+- [x] Suporte a múltiplas contas
 
 ## 🚧 Em desenvolvimento
 
-- [ ] Login e autenticação
-- [ ] Suporte a múltiplas contas
 - [ ] Melhor validação de entradas
+- [ ] Persistência do histórico de transações
+- [ ] Transferência entre contas
 
 ## 🛠️ Tecnologias
 
