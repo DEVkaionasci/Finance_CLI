@@ -15,11 +15,11 @@ Este é meu primeiro projeto feito de forma independente, então o foco é apren
 - [x] Persistência de dados em JSON
 - [x] Login e autenticação
 - [x] Suporte a múltiplas contas
+- [x] Persistência do histórico de transações
 
 ## 🚧 Em desenvolvimento
 
 - [ ] Melhor validação de entradas
-- [ ] Persistência do histórico de transações
 - [ ] Transferência entre contas
 
 ## 🛠️ Tecnologias

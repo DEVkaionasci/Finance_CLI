@@ -7,7 +7,6 @@ class Transacao:
     valor: float
     data_horario: datetime.datetime = field(
         default_factory=datetime.datetime.now,
-        init=False
         ) 
 
     def __str__(self):
