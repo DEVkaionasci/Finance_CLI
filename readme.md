@@ -12,10 +12,10 @@ Este é meu primeiro projeto feito de forma independente, então o foco é apren
 - [x] Depósito
 - [x] Saque
 - [x] Consulta de saldo
+- [x] Persistência de dados em JSON
 
 ## 🚧 Em desenvolvimento
 
-- [x] Persistência de dados em JSON
 - [ ] Login e autenticação
 - [ ] Suporte a múltiplas contas
 - [ ] Melhor validação de entradas
