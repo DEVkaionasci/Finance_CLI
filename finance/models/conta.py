@@ -29,14 +29,16 @@ class Conta(ABC):
 
     def depositar(self, valor):
         if valor > 0:
-            self._saldo += valor
             transacao = Transacao("deposito", valor)
-            self.registrar_transacao(transacao)
-            return True
+            if self.registrar_transacao(transacao):
+                self._saldo += valor
+                return True
         return False
 
     def registrar_transacao(self, transacao):
         self._transacoes.append(transacao)
+        return True
+
 
     def exibir_historico(self):
         for transacao in self._transacoes:
