@@ -3,11 +3,12 @@ from finance.models.transacao import Transacao
 
 
 class Conta(ABC):
-    def __init__(self, titular, saldo=0, senha=''):
+    def __init__(self, titular, saldo=0, salt=None, hash_senha=None):
         super().__init__()
-        self._saldo = saldo       
-        self._senha = senha        
-        self._titular = titular 
+        self._saldo = saldo             
+        self._titular = titular
+        self._salt = salt
+        self._hash_senha = hash_senha
         self._transacoes = []
 
 
@@ -43,8 +44,8 @@ class Conta(ABC):
 
 
 class ContaCorrente(Conta):
-    def __init__(self, titular, saldo=0, senha=0, limite_credito=500.0):
-        super().__init__(titular, saldo, senha)
+    def __init__(self, titular, saldo=0, salt=None, hash_senha=None, limite_credito=500.0):
+        super().__init__(titular, saldo, salt, hash_senha)
         self.limite_credito = limite_credito
         self._credito_utilizado = 0.0
 

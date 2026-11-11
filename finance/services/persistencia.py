@@ -8,6 +8,8 @@ def salvar_contas(contas):
     for conta in contas:
         dados_conta = {
             "titular": conta.titular,
+            "salt": conta._salt.hex(),
+            "hash_senha": conta._hash_senha.hex(),
             "saldo": str(conta.saldo),
             "limite_credito": str(conta.limite_credito),
             "credito_utilizado": str(conta.credito_utilizado)
@@ -29,13 +31,18 @@ def carregar_contas():
     contas = []
 
     for conta in dados:
-         nova_conta = ContaCorrente(
-              conta["titular"],
-              saldo=Decimal(conta["saldo"]),
-              limite_credito=Decimal(conta["limite_credito"])
-         )
+        salt = bytes.fromhex(conta["salt"])
+        hash_senha = bytes.fromhex(conta["hash_senha"])
 
-         nova_conta._credito_utilizado = Decimal(conta["credito_utilizado"])
-         contas.append(nova_conta)
+        nova_conta = ContaCorrente(
+            conta["titular"],
+            saldo=Decimal(conta["saldo"]),
+            salt=salt,
+            hash_senha=hash_senha,
+            limite_credito=Decimal(conta["limite_credito"])
+        )
+
+        nova_conta._credito_utilizado = Decimal(conta["credito_utilizado"])
+        contas.append(nova_conta)
 
     return contas
