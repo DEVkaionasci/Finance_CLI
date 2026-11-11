@@ -15,7 +15,7 @@ Este é meu primeiro projeto feito de forma independente, então o foco é apren
 
 ## 🚧 Em desenvolvimento
 
-- [ ] Persistência de dados em JSON
+- [x] Persistência de dados em JSON
 - [ ] Login e autenticação
 - [ ] Suporte a múltiplas contas
 - [ ] Melhor validação de entradas
