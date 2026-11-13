@@ -21,6 +21,7 @@ Este é meu primeiro projeto feito de forma independente, então o foco é apren
 
 - [ ] Melhor validação de entradas
 - [ ] Transferência entre contas
+- [ ] Crédito
 
 ## 🛠️ Tecnologias
 
