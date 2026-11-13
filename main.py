@@ -6,48 +6,49 @@ from stdiomask import getpass
 from decimal import Decimal, InvalidOperation
 import json
 
-#MAKE THE TEXT GREEN
+# DEIXA O TEXTO VERDE
 print(Fore.GREEN)
 
 contas = carregar_contas()
 conta_ativa = None
 
-#FIRST LOGIN
-print("1 - LOGIN\n2 - SIGN UP")
-new_or_not = input(">>")
+# PRIMEIRO ACESSO
+print("1 - ENTRAR\n2 - CADASTRAR")
+opcao_acesso = input(">>")
 
-#ALREADY HAS AN ACCOUNT
-if(new_or_not == '1'):
-    account_name = input("NAME OF ACCOUNT: ")
+# JÁ POSSUI CONTA
+if opcao_acesso == '1':
+    nome_conta = input("NOME DO TITULAR: ")
 
-    found_account = None
+    conta_encontrada = None
 
     for conta in contas:
-        if conta.titular == account_name:
-            found_account = conta
+        if conta.titular == nome_conta:
+            conta_encontrada = conta
             break
 
-    if found_account is None:
-        print("ACCOUNT NOT FOUND")
+    if conta_encontrada is None:
+        print("CONTA NÃO ENCONTRADA")
     else:
-        print("PASSWORD")
-        password = input(">> ")
+        print("SENHA")
+        senha = getpass(">> ", mask="*")
 
-        resultado = verificar_senha(password, 
-                        found_account._salt,
-                        found_account._hash_senha
-                        )
+        resultado = verificar_senha(
+            senha,
+            conta_encontrada._salt,
+            conta_encontrada._hash_senha
+        )
 
         if resultado:
-            print("LOGIN SUCESSFUL")
-            conta_ativa = found_account
+            print("LOGIN REALIZADO COM SUCESSO!")
+            conta_ativa = conta_encontrada
         else:
-            print("INCORRECT PASSWORD")
+            print("SENHA INCORRETA")
 
-#DONT HAVE ONE YET OR CREATE ANOTHER
-else:
-    nome = input("YOUR FULL NAME: ")
-    senha = getpass("YOUR PASSWORD: ", mask='*')
+# NÃO POSSUI CONTA OU DESEJA CRIAR OUTRA
+elif opcao_acesso == '2':
+    nome = input("SEU NOME COMPLETO: ")
+    senha = getpass("SUA SENHA: ", mask='*')
 
     salt, hash_senha = gerar_senha(senha)
 
@@ -59,22 +60,22 @@ else:
     contas.append(nova_conta)
     salvar_contas(contas)
 
-    if (nova_conta):
-        print("ACCOUNT CREATED WITH SUCESS!")
+    if nova_conta:
+        print("CONTA CRIADA COM SUCESSO!")
         conta_ativa = nova_conta
     else:
-        print("ERROR CREATING ACCOUNT!")
+        print("ERRO AO CRIAR CONTA!")
 
 if conta_ativa is not None:
     opcao = -1
-    while(opcao != '0'):
+    while opcao != '0':
 
         print("======POOBANK=====")
-        print("1 - BALANCE")
-        print("2 - WITHDRAW")
-        print("3 - DEPOSIT")
-        print("4 - TRANSACTIONS")
-        print("0 - EXIT")
+        print("1 - SALDO")
+        print("2 - SACAR")
+        print("3 - DEPOSITAR")
+        print("4 - TRANSAÇÕES")
+        print("0 - SAIR")
         print("===================")
         opcao = input(">>")
 
@@ -83,26 +84,26 @@ if conta_ativa is not None:
                 print(conta_ativa)
 
             case '2':
-                valor = Decimal(input("VALUE TO WITHDRAWN: "))
+                valor = Decimal(input("VALOR PARA SAQUE: "))
                 if conta_ativa.sacar(valor):
-                    print(f"R${valor:.2f} WITHDRAWED WITH SUCESS!")
+                    print(f"R${valor:.2f} SACADO COM SUCESSO!")
                     salvar_contas(contas)
                 else:
-                    print("TRANSACTION FAILURE")
+                    print("FALHA NA TRANSAÇÃO")
 
             case '3':
                 while True:
                     try:
-                        valor = Decimal(input("VALUE TO DEPOSIT: "))
+                        valor = Decimal(input("VALOR PARA DEPÓSITO: "))
                         break
                     except InvalidOperation:
-                        print("INVALID VALUE!")
+                        print("VALOR INVÁLIDO!")
 
-                if(conta_ativa.depositar(valor)):
-                    print(f"R${valor:.2f} DEPOSITED WITH SUCESS!")
+                if conta_ativa.depositar(valor):
+                    print(f"R${valor:.2f} DEPOSITADO COM SUCESSO!")
                     salvar_contas(contas)
                 else:
-                    print("TRANSACTION FAILURE")
+                    print("FALHA NA TRANSAÇÃO")
 
             case '4':
                 conta_ativa.exibir_historico()
